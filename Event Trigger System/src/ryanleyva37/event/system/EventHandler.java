@@ -1,10 +1,11 @@
-package ryanleyva37.event;
+package ryanleyva37.event.system;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import ryanleyva37.event.system.Trigger;
+import ryanleyva37.event.Event;
+import ryanleyva37.event.Trigger;
 
 public class EventHandler
 {

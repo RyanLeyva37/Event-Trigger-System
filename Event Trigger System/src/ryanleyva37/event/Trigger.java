@@ -1,4 +1,4 @@
-package ryanleyva37.event.system;
+package ryanleyva37.event;
 
 
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 import ryanleyva37.event.Event;
 import ryanleyva37.event.EventKeyPress;
-import ryanleyva37.event.Handler;
+import ryanleyva37.event.system.Handler;
 
 public class Trigger
 {

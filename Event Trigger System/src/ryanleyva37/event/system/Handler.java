@@ -1,4 +1,4 @@
-package ryanleyva37.event;
+package ryanleyva37.event.system;
 
 public @interface Handler {
 	
