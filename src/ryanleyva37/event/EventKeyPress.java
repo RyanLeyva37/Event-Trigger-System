@@ -5,7 +5,7 @@ public class EventKeyPress extends Event {
 	private int key;
 	
 	public EventKeyPress( int key ) {
-		key = this.key;
+		this.key = key;
 	}
 	
 	public int getKey() {

@@ -1,18 +1,10 @@
 package ryanleyva37.event;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import ryanleyva37.event.Event;
-import ryanleyva37.event.EventKeyPress;
 import ryanleyva37.event.system.Handler;
 
 public class Trigger
@@ -22,19 +14,26 @@ public class Trigger
     public final String SYSTEM_NAME;
     
     /** Used to pair trigger .class to instance created on startup. */
-    private static HashMap<Class, Trigger> triggers = new HashMap<Class, Trigger>();
+    private static HashMap<Class<?>, Trigger> triggers = new HashMap<Class<?>, Trigger>();
     
     /** Array of instances of triggers loaded in system. */
-    private static Trigger[] triggerList = new Trigger[] {};
+    private static ArrayList<Trigger> triggerList = new ArrayList<Trigger>();
+    
+    private Class<?> cls;
 
     /**
      * Initializes trigger with default values.
     */
     @Handler
-    public Trigger( String systemName, Class cls )
+    public Trigger( String systemName, Class<?> cls )
     {
         this.SYSTEM_NAME = systemName;
+        this.cls = cls;
+    }
+    
+    public void registerTrigger(){
         triggers.put( cls, this );
+        triggerList.add(this);
     }
     
     /**
@@ -60,9 +59,17 @@ public class Trigger
     }
     
     /**
+     * Returns trigger mapped to class.
+    */
+    public static Trigger getTrigger( Class<?> cls )
+    {
+        return triggers.get( cls );
+    }
+    
+    /**
      * Returns list of trigger loaded.
     */
-    public static Trigger[] getTriggers()
+    public static ArrayList<Trigger> getTriggers()
     {
         return triggerList;
     }
@@ -70,13 +77,7 @@ public class Trigger
 
 
 
-    /**
-     * Returns trigger mapped to class.
-    */
-    public static Trigger getTriggers( Class cls )
-    {
-        return ( Trigger )triggers.get( cls );
-    }
+
     
     
 
