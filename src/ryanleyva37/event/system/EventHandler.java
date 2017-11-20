@@ -6,29 +6,26 @@ import java.lang.reflect.Method;
 
 import ryanleyva37.event.Event;
 import ryanleyva37.event.Trigger;
-
+/**
+ * @author Ryan Leyva
+ * Code Coverage: 94.6%
+ */
 public class EventHandler
 {
     public Event handleEvent( Event event )
     {
-
         for ( Trigger trigger : Trigger.getTriggers() ) //Loops through initialized triggers
         {
           
-            
         	for( Method method : trigger.getClass().getMethods() ) //Loops through methods found in trigger class
         	{
         		Annotation annotation = method.getAnnotation(Handler.class);
         		if( annotation == null)
         		{
         			continue;
-        		}else{
-        			System.out.println(method.getName());
         		}
-        		if(		( contains( method.getParameterTypes(), event.getClass() )						//(If parameter type of arguments in method contain event class OR 
-        			    ||contains( method.getParameterTypes(), Event.class ) )						//If parameter type of arguments in method contain generic event class) AND
-        				&& method.getParameterTypes().length==1 && !method.getName().equals( "equals" )	//method has no other arguments AND method is not equals trigger method				
-        					
+        		if(		contains( method.getParameterTypes(), event.getClass() )						//(If parameter type of arguments in method contain event class OR 
+        				&& method.getParameterTypes().length==1        					
         		  )
         		{
         			try {

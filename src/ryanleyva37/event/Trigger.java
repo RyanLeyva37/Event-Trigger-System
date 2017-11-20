@@ -6,7 +6,10 @@ import java.util.HashMap;
 
 import ryanleyva37.event.Event;
 import ryanleyva37.event.system.Handler;
-
+/**
+ * @author Ryan Leyva
+ * Code Coverage: 98.6%
+ */
 public class Trigger
 {
     
@@ -24,21 +27,28 @@ public class Trigger
     /**
      * Initializes trigger with default values.
     */
-    @Handler
     public Trigger( String systemName, Class<?> cls )
     {
         this.SYSTEM_NAME = systemName;
         this.cls = cls;
     }
     
-    public void registerTrigger(){
+    public Trigger registerTrigger(){
         triggers.put( cls, this );
         triggerList.add(this);
+        return this;
+    }
+    
+    public Trigger unRegisterTrigger(){
+        triggers.remove(this.cls);
+        triggerList.remove(this);
+    	return this;
     }
     
     /**
      * Generic event method called when event is triggered
     */
+    @Handler
     public void onEvent( Event event ) {}
     
     /**
@@ -46,11 +56,12 @@ public class Trigger
     */
     public static Trigger getTrigger( String name )
     {
-        for ( Trigger trigger : triggerList )
+        for ( Trigger trigger : getTriggers() )
         {
 
             if ( trigger.SYSTEM_NAME.equalsIgnoreCase( name ) )
-            {
+            {	
+            	System.out.println(trigger.SYSTEM_NAME);
                 return trigger;
             }
         }
