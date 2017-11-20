@@ -1,4 +1,4 @@
-package ryanleyva37.event.system;
+package ryanleyva37.test;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import org.junit.Test;
 import ryanleyva37.event.Event;
 import ryanleyva37.event.EventKeyPress;
 import ryanleyva37.event.Trigger;
+import ryanleyva37.event.system.EventHandler;
+import ryanleyva37.event.system.Handler;
 
 public class Test_EventHandler {
 	
@@ -181,6 +183,7 @@ public class Test_EventHandler {
 		Trigger trigger = new Trigger("Test trigger", Trigger.class){
 		
 			
+			@SuppressWarnings("unused")
 			public void totallyRandom( Event event ) {
 				Test_EventHandler.hasBeenCalled = true;
 			}
@@ -232,6 +235,7 @@ public class Test_EventHandler {
 		Trigger trigger = new Trigger("Test trigger", Trigger.class){
 		
 			
+			@SuppressWarnings("unused")
 			public void totallyRandom( EventKeyPress event ) {
 				Test_EventHandler.hasBeenCalled = true;
 			}

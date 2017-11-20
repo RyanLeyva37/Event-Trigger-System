@@ -1,8 +1,10 @@
-package ryanleyva37.event;
+package ryanleyva37.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import ryanleyva37.event.Trigger;
 
 
 
