@@ -4,7 +4,7 @@ A Simple to use solution for all your event/trigger needs!
 
 ![](https://image.ibb.co/chZVix/Untitled.png)
 
-# Goals/Index:
+# Index:
 1. How to create an Event Processor, Trigger and Event
 
 2. How to create Event Handlers
@@ -15,14 +15,14 @@ A Simple to use solution for all your event/trigger needs!
 
 # 1 - How to create an Event Processor, Trigger and Event
 
-###Create Event processor
+### Create Event processor
 
 Declaring a public static Event Processor and instantiating it on (initialization/declaration) is recommended
 
     public static EventProcessor EV = new EventProcessor();
 
     
-###Create Triggers 
+### Create Triggers 
 
 When it comes to creating triggers you have two options, as a superclass or a stand alone instance
 
