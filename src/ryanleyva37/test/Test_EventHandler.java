@@ -20,7 +20,7 @@ public class Test_EventHandler {
 		Test_EventHandler.hasBeenCalled = false;
 		EventHandler eventHandler = new EventHandler();
 		Trigger trigger = buildTrigger();
-		
+
 		//Act
 		eventHandler.handleEvent(new Event());
 		
@@ -89,8 +89,7 @@ public class Test_EventHandler {
 
 		//Act
 		eventHandler.handleEvent(new EventKeyPress(99));
-		
-		//Assert
+        //Assert
 		assertEquals(true, Test_EventHandler.hasBeenCalled);
 		
 		trigger.unRegisterTrigger();
@@ -132,14 +131,10 @@ public class Test_EventHandler {
 	
 	private Trigger buildTrigger(){
 		Trigger trigger = new Trigger("Test trigger", Trigger.class){
-		
 			@Override @Handler
 			public void onEvent( Event event ) {
 				Test_EventHandler.hasBeenCalled = true;
 			}
-		
-
-
 		};
 		
 		trigger.registerTrigger();
@@ -169,7 +164,7 @@ public class Test_EventHandler {
 		
 			@Handler
 			public void totallyRandom( Event event ) {
-				Test_EventHandler.hasBeenCalled = true;
+			    Test_EventHandler.hasBeenCalled = true;
 			}
 
 		};
